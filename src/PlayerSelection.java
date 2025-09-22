@@ -133,6 +133,7 @@ public class PlayerSelection {
             System.out.println("Height:" + heightInCent + "cm");
             System.out.println("Weight: " +weightInKg+ "Kg");
             System.out.println("Jersey Number: "+ jerseyNumber);
+            System.out.println("Category: " + category);
             System.out.println("Position: "+ position);
             System.out.println("Attacker jersey: " + (isAttacker ? "Yes": "No"));
             System.out.println("Eligibility: " + (eligible ? "Eligible" : "Not Eligible"));
