@@ -36,12 +36,7 @@ public class PlayerSelection {
 
             age++;
 
-            // simulated penalty
             jerseyNumber--;
-
-            System.out.println("The player's new age is: " + age + " and their jersey number is now: " + jerseyNumber);
-
-            //Task 4//
 
             boolean eligible = (age >= 18 && age <= 35 && weightInKg <= 90);
             if(eligible){
@@ -50,19 +45,6 @@ public class PlayerSelection {
                 System.out.println("The player is NOT eligible");
             }
 
-            boolean hasProblems =(age < 18 || weightInKg >= 90);
-            if (hasProblems){
-                System.out.println("Player has a problem: either he is too young or overweight!!");}
-
-
-            boolean isEligible = (!(age >= 18 && age <= 35 && weightInKg <= 90));
-            if (isEligible){
-                System.out.println("Eligible");}
-            else{
-                System.out.println("NOT ELIGIBLE");}
-
-
-
             String category;
             if (age < 20)
                 category = "Rising Star";
@@ -70,17 +52,66 @@ public class PlayerSelection {
                 category = "Prime Player";
             else
                 category = "Veteran";
+        String position;
 
-            String position = switch (jerseyNumber) {
-                case 1 -> ("Goalkeeper");
-                case 2, 5 -> ("Defender");
-                case 6, 8 -> ("Midfielder");
-                case 7, 11 -> ("Winger");
-                case 9 -> ("Striker");
-                case 10 -> ("Playmaker");
-                default -> ("not known");
-            };
+            switch (jerseyNumber) {
 
+                case 1:
+                    position=  "Goalkeeper";
+                    break;
+                case 2,5 :
+                    position= "Defender";
+                    break;
+                case 6,8:
+                    position ="midfielder";
+                    break;
+                case 7,11:
+                    position= "Winger";
+                    break;
+                case 9:
+                    position= "Striker";
+                    break;
+                case 10:
+                    position= "Playmaker";
+                    break;
+                default:
+                   position= "Unknown";
+            }
+
+            /*switch (jerseyNumber) {
+
+                case 1:
+                    System.out.println("Player position: Goalkeeper");
+                    break;
+                case 2 :
+                    System.out.println("Player position: Defender");
+
+                case 5:
+                    System.out.println("Player position: Defender");
+                    break;
+                case 6:
+                    System.out.println("Player position: midfielder");
+
+                case 8:
+                    System.out.println("Player position: Midfielder");
+                    break;
+                case 7:
+                    System.out.println("Player position: Winger");
+                case 11:
+                    System.out.println("Player position: Winger");
+                    break;
+                case 9:
+                    System.out.println("Player position: Striker");
+                    break;
+                case 10:
+                    System.out.println("Player position: Playmaker");
+                    break;
+                default:
+                    System.out.println("Player position: Unknown");
+
+            };*/
+
+        
             String lineupDecision;
             if (category.equals("Prime Player")) {
                 if (weightInKg < 80) {
@@ -92,10 +123,9 @@ public class PlayerSelection {
                 lineupDecision = "Benched";
             }
 
-            String finalStatus = isEligible ? "Play":"Rest";
+            String finalStatus = eligible ? "Play": "Rest";
 
             boolean isAttacker = (jerseyNumber >= 7 && jerseyNumber <= 11);
-
 
             System.out.println("--- PLAYER REPORT ---");
             System.out.println("Name: "+ name);
@@ -104,8 +134,8 @@ public class PlayerSelection {
             System.out.println("Weight: " +weightInKg+ "Kg");
             System.out.println("Jersey Number: "+ jerseyNumber);
             System.out.println("Position: "+ position);
-            System.out.println("Attacker jersey: " + (isAttacker ? "Yes" : "No"));
-            System.out.println("Eligibility: " + (isEligible ? "Eligible" : "Not Eligible"));
+            System.out.println("Attacker jersey: " + (isAttacker ? "Yes": "No"));
+            System.out.println("Eligibility: " + (eligible ? "Eligible" : "Not Eligible"));
             System.out.println("Lineup Decision: " + lineupDecision);
             System.out.println("Final status: " + finalStatus);
 
